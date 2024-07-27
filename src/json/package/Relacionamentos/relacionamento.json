@@ -1,0 +1,74 @@
+{
+"Relacionamentos 1": [
+    {
+      "id": 1,
+      "text": "É possível ter amizade com o ex?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 2,
+      "text": "Quais características você não abre mão no seu parceiro (a)?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 3,
+      "text": "Você quebraria a lei para salvar uma pessoa amada?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 4,
+      "text": "Você já fez alguma loucura por amor?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 5,
+      "text": "Qual defeito você não admite no seu parceiro (a)?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 6,
+      "text": "Quais características você não abre mão no seu parceiro (a)?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 7,
+      "text": "Ver seu companheiro com um completo desconhecido ou com alguém próximo dos dois?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 8,
+      "text": "Se você soubesse que um conhecido seu estivesse sendo traído, contaria ou guardaria segredo?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 9,
+      "text": "Como você gosta que seu parceiro (a) faça você se sentir?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    },
+    {
+      "id": 10,
+      "text": "Você ficaria 6 meses sem celular em troca de se casar com o amor da sua vida?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 7
+    }
+  ]
+}

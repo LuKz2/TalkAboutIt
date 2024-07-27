@@ -1,0 +1,74 @@
+{
+    "Lúdicas": [
+      {
+        "id": 1,
+        "text": "Se você pudesse salvar a vida de alguém, quem seria?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 2,
+        "text": "Se achasse a lâmpada do gênio, quais seriam seus 3 pedidos?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 3,
+        "text": "O que você faria se soubesse que iria morrer em 10 dias?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 4,
+        "text": "Se pudesse ter um super poder, qual seria?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 5,
+        "text": "Se você pudesse trocar de vida com alguém por um dia, quem escolheria?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 6,
+        "text": "Se você pudesse aprender instantaneamente uma habilidade, qual escolheria?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 7,
+        "text": "O que você faria se soubesse que iria viver para sempre?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 8,
+        "text": "Se você soubesse que todos que conhece morreriam amanhã, quem você visitaria hoje?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 9,
+        "text": "Se você pudesse viajar no tempo, para qual época você iria?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      },
+      {
+        "id": 10,
+        "text": "O que você faria se soubesse que existe vida após a morte?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 5
+      }
+    ]
+}

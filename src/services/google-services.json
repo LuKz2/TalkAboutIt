@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "461153059381",
+    "project_id": "talkaboutit-aad9c",
+    "storage_bucket": "talkaboutit-aad9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461153059381:android:5292ebeac548a72db5e77c",
+        "android_client_info": {
+          "package_name": "com.talkaboutit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461153059381-655bh1gkj77k7ck0u39ue1f9lga265b6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.talkaboutit",
+            "certificate_hash": "781599496ef6fa470f2cb7ac35b6a6e9bafe956e"
+          }
+        },
+        {
+          "client_id": "461153059381-qd2b4s72ql1ra67o8n2tgj32o9voh4q6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.talkaboutit",
+            "certificate_hash": "ad1afed580e32bcc25deadcfdb3a3c1e5dabab11"
+          }
+        },
+        {
+          "client_id": "461153059381-vig1etk11bsilm4fevdmrok1odoojofs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi2iRo20dmvjmTKa5gYGZo2DP3NbvofJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461153059381-vig1etk11bsilm4fevdmrok1odoojofs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "461153059381-8hc115qb01l1hb39a82jtmpgo0ngqula.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.talkaboutit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,75 @@
+{
+    "crush": [
+      {
+        "id": 1,
+        "text": "Tem algum sonho ou objetivo que você está trabalhando para alcançar?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 2,
+        "text": "Qual foi a última aventura que você teve?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 3,
+        "text": "Se você pudesse viajar para qualquer lugar agora, para onde iria?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 4,
+        "text": "Qual é a sua definição de um dia perfeito?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 5,
+        "text": "Qual é a sua paixão na vida?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 6,
+        "text": "Tem algum hobby ou talento que você adora?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 7,
+        "text": "Qual é a sua estação do ano preferida?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 8,
+        "text": "Você é mais de praia ou de montanha?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 9,
+        "text": "Qual é a sua ideia de um encontro perfeito?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      },
+      {
+        "id": 10,
+        "text": "Qual é o seu filme ou série favorito?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 1
+      }
+    ]
+  }
+  

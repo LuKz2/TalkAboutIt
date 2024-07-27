@@ -1,0 +1,14 @@
+[
+    { "title": "Reflexão", "image": "../../assets/pacotes/friends.jpg", "price": "R$ 4,99", "description": "Perguntas que tiram da zona de conforto, fazem refletir a respeito dos valores da vida.", "locked": true },
+    { "title": "Relacionamentos", "image": "../../assets/pacotes/rela.jpg", "price": "R$ 4,99", "description": "Perguntas sobre o crush, como você se sente e o que pensa ou espera", "locked": true },
+    { "title": "Memórias", "image": "../../assets/pacotes/memorias.jpg", "price": "R$ 4,99", "description": "Perguntas que certamente vão mexer com suas emoções e sentimentos.", "locked": true },
+    { "title": "Sobre Você", "image": "../../assets/pacotes/sobrevoce.jpg", "price": "R$ 4,99", "description": "Perguntas a seu respeito, o que passa na sua cabeça, como você se sente", "locked": true },
+    { "title": "Sobre Grupo", "image": "../../assets/pacotes/amigos.jpg", "price": "R$ 4,99", "description": "Fale sobre seus amigos, essa interação pode causar desconforto e conflitos, tenha cuidado.", "locked": true },
+    { "title": "Apimentadas", "image": "../../assets/pacotes/18.jpg", "price": "R$ 4,99", "description": "Proibidas para menores de 18 anos.", "locked": true },
+    { "title": "Lúdicas", "image": "../../assets/pacotes/ludicas.jpg", "price": "R$ 4,99", "description": "Perguntas que mexem com sua imaginação e incentivam a criatividade.", "locked": true },
+    { "title": "Politicamente incorretas", "image": "../../assets/pacotes/politicamente.jpg", "price": "R$ 4,99", "description": "Perguntas polêmicas, assuntos difíceis para abordar.", "locked": true },
+    { "title": "Para fazer rir", "image": "../../assets/pacotes/rir.jpg", "price": "R$ 4,99", "description": "Descontração e diversão.", "locked": true },
+    { "title": "Crush", "image": "../../assets/pacotes/crush.jpg", "price": "R$ 4,99", "description": "Perguntas que criam uma conexão permitindo que você conheça melhor a pessoa enquanto flerta", "locked": true },
+    { "title": "Família", "image": "../../assets/pacotes/familia.jpg", "price": "R$ 4,99", "description": "Fortalecem laços familiares e promovem entendimento mais profundo entre todos", "locked": true }
+  ]
+  

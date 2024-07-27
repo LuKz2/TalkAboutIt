@@ -1,0 +1,74 @@
+{
+    "Sobre você 1": [
+    {
+      "id": 1,
+      "text": "Você já foi excluído por algum grupo? Como lidou com isso?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 2,
+      "text": "Se você pudesse escolher como morrer, como seria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 3,
+      "text": "Diga 3 palavras que te descrevem.",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 4,
+      "text": "Cite 3 coisas que você não pode deixar de fazer antes de morrer.",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 5,
+      "text": "O que você odeia que pensem a seu respeito?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 6,
+      "text": "Você mudaria algo no seu corpo? O que e por quê?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 7,
+      "text": "Se você fosse preso sem explicação, o que seus amigos achariam que você fez?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 8,
+      "text": "Qual é seu maior medo?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 9,
+      "text": "O que você acha que as pessoas diriam no seu funeral se você morresse hoje?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    },
+    {
+      "id": 10,
+      "text": "Todos têm uma compulsão, qual é a sua?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 2
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+"Politicamente incorretas 1": [
+    {
+      "id": 1,
+      "text": "Conte algo que você fez e prejudicou a vida de alguém.",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 2,
+      "text": "Você prefere ser responsável pela morte de uma criança ou de três adultos?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 3,
+      "text": "Se você pudesse acabar com uma minoria, qual grupo seria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 4,
+      "text": "Casar com uma pessoa que você não ama e ser rico o resto da vida ou casar com alguém que você ama e não ter dinheiro?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 5,
+      "text": "Você prefere 50 mil em dinheiro honesto ou 1 milhão em dinheiro ilegal?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 6,
+      "text": "Você já fez algo vergonhoso e colocou a culpa em outra pessoa?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 7,
+      "text": "Se você tivesse o poder da morte, quem mataria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 8,
+      "text": "Qual segredo você guarda que partiria o coração de seus pais?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 9,
+      "text": "Seja sincero, você acredita em Deus?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    },
+    {
+      "id": 10,
+      "text": "Você já roubou?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 6
+    }
+  ]
+}

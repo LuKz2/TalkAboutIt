@@ -1,0 +1,90 @@
+{
+  "freeQuestions": [
+  {
+    "id": 1,
+    "text": "Qual é seu defeito que você mais tenta esconder das pessoas?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 2,
+    "text": "Quantos anos você teria se não soubesse quantos anos tem?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 3,
+    "text": "O que te faz mal e você não consegue deixar?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 4,
+    "text": "Você sairia com alguém por muito dinheiro?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 5,
+    "text": "Qual é o maior arrependimento da sua vida?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 6,
+    "text": "Se a vida fosse uma mochila, o que você descarregaria para ficar mais leve?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 7,
+    "text": "Qual lição você gostaria de ter aprendido mais cedo na vida?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 8,
+    "text": "Se você pudesse oferecer a um recém-nascido um conselho, qual seria?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 9,
+    "text": "Quais assuntos conversar com o crush deveriam ser proibidos?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  }
+  ,
+  {
+    "id": 10,
+    "text": "Quais são as virtudes que as pessoas costumam dizer a seu respeito? Todos do grupo concordam?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 11,
+    "text": "O que você tem certeza que nunca vai fazer na vida?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  },
+  {
+    "id": 12,
+    "text": "Qual a frase dita por sua mãe na sua infância que você jamais esqueceu?",
+    "fontSize": 24,
+    "free": true,
+    "packageId": 1
+  }
+]
+}
+

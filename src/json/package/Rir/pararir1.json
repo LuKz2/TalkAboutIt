@@ -1,0 +1,74 @@
+{
+"Para fazer rir": [
+    {
+      "id": 1,
+      "text": "Se você pudesse ficar invisível por um dia, o que você faria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 2,
+      "text": "Se você tivesse que excluir todos os aplicativos, exceto 3, quais você manteria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 3,
+      "text": "Diga uma situação muito embaraçosa que você já passou?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 4,
+      "text": "Quais mentiras você já contou para não ir à escola ou trabalho?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 5,
+      "text": "Você já fez xixi na calça de tanto medo, de tanto rir ou dormindo?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 6,
+      "text": "Já vomitou pelo nariz?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 7,
+      "text": "Qual foi a pior notícia falsa que você já acreditou?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+      "id": 8,
+      "text": "Se você pudesse trocar de lugar com um objeto inanimado, qual objeto seria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 8
+    },
+    {
+        "id": 9,
+        "text": "Qual é a parte do seu corpo que mais usa?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 8
+      },
+      {
+        "id": 10,
+        "text": "Se você trocasse de sexo por um dia, o que você faria?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 8
+      }
+    ]
+}

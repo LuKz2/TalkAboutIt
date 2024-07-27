@@ -1,0 +1,74 @@
+{
+"Sobre_grupo1": [
+    {
+      "id": 1,
+      "text": "Se você pudesse salvar alguém desse grupo, quem seria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 2,
+      "text": "Quem do grupo é o mais dramático?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 3,
+      "text": "Quem do grupo teria mais chance de ser preso?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 4,
+      "text": "Se tivesse que escolher somente um do grupo para uma balada, quem seria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 5,
+      "text": "Diga um defeito da pessoa que está na sua frente.",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 6,
+      "text": "Se tivesse que excluir alguém desse grupo, quem seria?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 7,
+      "text": "Quem desse grupo teria mais chance de trair o parceiro(a)?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 8,
+      "text": "Você já mentiu para alguém deste grupo?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 9,
+      "text": "Você já desejou alguém desse grupo?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    },
+    {
+      "id": 10,
+      "text": "Você já se sentiu traído por alguém deste grupo?",
+      "fontSize": 24,
+      "paid": true,
+      "packageId": 3
+    }
+  ]
+}

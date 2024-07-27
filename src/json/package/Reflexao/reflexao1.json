@@ -1,0 +1,75 @@
+{
+    "Reflexao 1": [
+      {
+        "id": 1,
+        "text": "Você estaria disposto a reduzir sua expectativa de vida em 10 anos para se tornar extremamente atraente ou famoso?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 2,
+        "text": "Você prefere ser famoso enquanto está vivo e esquecido quando morrer ou desconhecido quando vivo mas famoso quando morrer?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 3,
+        "text": "Na sua opinião, qual é o pior sentimento que podemos nutrir sobre pessoas?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 4,
+        "text": "Qual momento na vida você se sentiu mais perdido?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 5,
+        "text": "Qual foi a última vez que você fez algo pela primeira vez?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 6,
+        "text": "Quando foi a última vez que você notou o som da sua própria respiração?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 7,
+        "text": "É mais fácil perdoar ou ser perdoado?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 8,
+        "text": "Você preferia ter mais tempo ou dinheiro?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 9,
+        "text": "Quão grande você sonharia se você soubesse que não iria falhar?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      },
+      {
+        "id": 10,
+        "text": "Qual foi a última coisa que você aprendeu que mudou sua perspectiva sobre algo?",
+        "fontSize": 24,
+        "paid": true,
+        "packageId": 9
+      }
+    ]
+  }
+  

@@ -1,0 +1,75 @@
+{
+    "Família 1": [
+      {
+        "id": 1,
+        "text": "Como você se sente quando está com a nossa família?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 2,
+        "text": "Tem algo que você gostaria de dizer, mas nunca teve a oportunidade?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 3,
+        "text": "O que você mais aprecia em cada membro da família?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 4,
+        "text": "Como você descreveria a nossa família para alguém que não nos conhece?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 5,
+        "text": "Tem algo que você gostaria de fazer mais em família?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 6,
+        "text": "O que te faz sentir amado e valorizado?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 7,
+        "text": "Tem alguma coisa que você gostaria de aprender ou melhorar?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 8,
+        "text": "Qual é a sua lembrança favorita da infância?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 9,
+        "text": "Qual é o seu maior sonho?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      },
+      {
+        "id": 10,
+        "text": "Qual foi o momento mais feliz em família até agora?",
+        "fontSize": 24,
+        "free": true,
+        "packageId": 2
+      }
+    ]
+  }
+  
