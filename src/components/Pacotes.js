@@ -13,6 +13,7 @@ const db = getFirestore(app);
 const Biblioteca = () => {
   const [purchasedPackages, setPurchasedPackages] = useState([]);
   const [checkedItems, setCheckedItems] = useState({});
+  const [allSelected, setAllSelected] = useState(false); // Estado para rastrear se todos os pacotes estão selecionados
   const freePackage = 'Pacote Grátis';
   const [userInfo, setUserInfo] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -217,15 +218,31 @@ const Biblioteca = () => {
   };
 
   const selectAllPackages = () => {
-    const newCheckedItems = purchasedPackages.reduce((acc, packageName) => {
-      acc[packageName] = true;
-      return acc;
-    }, {});
-
-    setCheckedItems(newCheckedItems);
-    saveCheckedItems(newCheckedItems);
-    loadQuestionsForSelectedPackages(newCheckedItems);
+    if (allSelected) {
+      // Desmarca todos os pacotes
+      const newCheckedItems = purchasedPackages.reduce((acc, packageName) => {
+        acc[packageName] = false;
+        return acc;
+      }, {});
+  
+      setCheckedItems(newCheckedItems);
+      saveCheckedItems(newCheckedItems);
+      loadQuestionsForSelectedPackages(newCheckedItems);
+      setAllSelected(false);
+    } else {
+      // Marca todos os pacotes
+      const newCheckedItems = purchasedPackages.reduce((acc, packageName) => {
+        acc[packageName] = true;
+        return acc;
+      }, {});
+  
+      setCheckedItems(newCheckedItems);
+      saveCheckedItems(newCheckedItems);
+      loadQuestionsForSelectedPackages(newCheckedItems);
+      setAllSelected(true);
+    }
   };
+  
 
   const renderPackageItem = (item) => {
     const isPurchased = purchasedPackages.includes(item);

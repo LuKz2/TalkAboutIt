@@ -3,6 +3,7 @@ import {
   View, Text, Animated, PanResponder, StyleSheet, Dimensions,
 } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
+import LottieView from 'lottie-react-native';
 
 const DraggableNotificationLoja = ({ message, description, onClose }) => {
   const notificationY = useRef(new Animated.Value(-200)).current;
@@ -11,11 +12,13 @@ const DraggableNotificationLoja = ({ message, description, onClose }) => {
     onMoveShouldSetPanResponder: (_, gestureState) => gestureState.dy < 0, // Só reage a movimentos para cima
     onPanResponderMove: Animated.event(
       [null, { dy: notificationY }],
-      { useNativeDriver: false, listener: (event, gestureState) => {
-        if (gestureState.dy > 0) { // Restrição para não arrastar para baixo
-          notificationY.setValue(0);
-        }
-      }},
+      {
+        useNativeDriver: false, listener: (event, gestureState) => {
+          if (gestureState.dy > 0) { // Restrição para não arrastar para baixo
+            notificationY.setValue(0);
+          }
+        },
+      },
     ),
     onPanResponderRelease: (_, gestureState) => {
       if (gestureState.dy < -50) { // Verifica se o movimento foi suficiente para cima
@@ -44,7 +47,7 @@ const DraggableNotificationLoja = ({ message, description, onClose }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.draggableContainer} {...panResponder.panHandlers}>
       <BlurView
         style={styles.absolute}
         blurType="dark"
@@ -52,11 +55,18 @@ const DraggableNotificationLoja = ({ message, description, onClose }) => {
       />
       <Animated.View
         style={[styles.notificationContainer, { transform: [{ translateY: notificationY }] }]}
-        {...panResponder.panHandlers}
       >
         <View style={styles.notificationContent}>
-          <Text style={styles.notificationTitle}>{message}</Text>
-          <Text style={styles.notificationDescription}>{description}</Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.notificationTitle}>{message}</Text>
+            <Text style={styles.notificationDescription}>{description}</Text>
+          </View>
+          <LottieView
+            source={require('../../assets/lottie/up.json')}
+            autoPlay
+            loop
+            style={styles.lottie}
+          />
         </View>
       </Animated.View>
     </View>
@@ -64,7 +74,7 @@ const DraggableNotificationLoja = ({ message, description, onClose }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  draggableContainer: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 1000,
     alignItems: 'center',
@@ -77,9 +87,15 @@ const styles = StyleSheet.create({
     zIndex: 1001,
   },
   notificationContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 20,
     backgroundColor: '#333',
     borderRadius: 10,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 10,
   },
   notificationTitle: {
     fontSize: 18,
@@ -90,6 +106,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     fontFamily: 'Quicksand-VariableFont_wght',
+  },
+  lottie: {
+    width: 70,
+    height: 70,
   },
   absolute: {
     ...StyleSheet.absoluteFillObject,

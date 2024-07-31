@@ -9,8 +9,6 @@ const DraggableNotification = ({ message, description, onClose, isShopNotificati
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
-    let isMounted = true;
-
     const playSound = async () => {
       try {
         await soundRef.current.loadAsync(require('../../assets/songs/notification.mp3'));
@@ -29,7 +27,6 @@ const DraggableNotification = ({ message, description, onClose, isShopNotificati
     }).start();
 
     return () => {
-      isMounted = false;
       soundRef.current.unloadAsync().catch(error => {
         console.log('Erro ao descarregar o som', error);
       });
@@ -66,35 +63,41 @@ const DraggableNotification = ({ message, description, onClose, isShopNotificati
   ).current;
 
   return (
-    <Animated.View
-      {...panResponder.panHandlers}
-      style={[styles.notification, { transform: [{ translateY: pan.y }], top: isShopNotification ? 110 : 50 }]}
-    >
-      <View style={styles.content}>
-        <View style={styles.textContainer}>
-          <Text style={styles.message}>{message}</Text>
-          <Text style={styles.description}>{description}</Text>
+    <View style={styles.draggableContainer} {...panResponder.panHandlers}>
+      <Animated.View
+        style={[styles.notification, { transform: [{ translateY: pan.y }], top: isShopNotification ? 110 : 50 }]}
+      >
+        <View style={styles.content}>
+          <View style={styles.textContainer}>
+            <Text style={styles.message}>{message}</Text>
+            <Text style={styles.description}>{description}</Text>
+          </View>
+          <LottieView
+            source={require('../../assets/lottie/up.json')}
+            autoPlay
+            loop
+            style={styles.lottie}
+          />
         </View>
-        <LottieView
-          source={require('../../assets/lottie/up.json')}
-          autoPlay
-          loop
-          style={styles.lottie}
-        />
-      </View>
-    </Animated.View>
+      </Animated.View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  notification: {
+  draggableContainer: {
     position: 'absolute',
-    left: 20,
-    right: 20,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 9999,
+  },
+  notification: {
+    marginHorizontal: 20,
     padding: 10,
     backgroundColor: '#333',
     borderRadius: 10,
-    zIndex: 9999, 
   },
   content: {
     flexDirection: 'row',

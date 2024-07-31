@@ -1,10 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons'; // Corrigido import
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { AccessToken } from 'react-native-fbsdk-next';
 
 const PackageItem = ({ packageData, onPress }) => {
   const { title, image, price, description } = packageData;
+  const [isLocked, setIsLocked] = useState(true);
+  const [userInfo, setUserInfo] = useState(null);
 
-  const getImage = (path) => {
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const googleUserInfo = await GoogleSignin.getCurrentUser();
+        const facebookAccessToken = await AccessToken.getCurrentAccessToken();
+
+        if (googleUserInfo) {
+          setUserInfo({ id: googleUserInfo.user.id, name: googleUserInfo.user.name, email: googleUserInfo.user.email });
+        } else if (facebookAccessToken) {
+          const response = await fetch(`https://graph.facebook.com/me?access_token=${facebookAccessToken.accessToken}&fields=id,name,email`);
+          const result = await response.json();
+          setUserInfo({ id: result.id, name: result.name, email: result.email });
+        }
+      } catch (error) {
+        console.error("Erro ao verificar autenticação:", error);
+      }
+    };
+
+    const checkIfPackagePurchased = async () => {
+      try {
+        if (userInfo) {
+          const userRef = doc(db, 'users', userInfo.id);
+          const userSnap = await getDoc(userRef);
+
+          if (userSnap.exists()) {
+            const purchasedPackages = userSnap.data().purchasedPackages || [];
+            if (purchasedPackages.includes(title)) {
+              setIsLocked(false);
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao verificar pacotes comprados:', error);
+      }
+    };
+
+    checkAuthentication();
+    checkIfPackagePurchased();
+  }, [title, userInfo]);
+
+  const getImage = useCallback((path) => {
     switch (path) {
       case '../../assets/pacotes/friends.jpg':
         return require('../../assets/pacotes/friends.jpg');
@@ -26,18 +73,16 @@ const PackageItem = ({ packageData, onPress }) => {
         return require('../../assets/pacotes/rir.jpg');
       case '../../assets/pacotes/crush.jpg':
         return require('../../assets/pacotes/crush.jpg');
-        case '../../assets/pacotes/familia.jpg':
-          return require('../../assets/pacotes/familia.jpg');
+      case '../../assets/pacotes/familia.jpg':
+        return require('../../assets/pacotes/familia.jpg');
       default:
-        return require('../../assets/pacotes/rir.jpg'); // Adicione uma imagem padrão caso o caminho não seja encontrado
+        return require('../../assets/pacotes/rir.jpg');
     }
-  };
+  }, []);
 
-  const handlePress = () => {
-    onPress(packageData);
-  };
-
-  // Log para identificar o pacote na tela
+  const handlePress = useCallback(() => {
+    onPress(packageData, isLocked);
+  }, [packageData, isLocked, onPress]);
 
   return (
     <View style={styles.container}>
@@ -46,6 +91,18 @@ const PackageItem = ({ packageData, onPress }) => {
         <View style={styles.imageWrapper}>
           <View style={styles.imageContainer}>
             <Image source={getImage(image)} style={styles.image} />
+            {isLocked ? (
+              <>
+                <View style={styles.lockOverlay} />
+                <View style={styles.lockIconContainer}>
+                  <FontAwesome5 name="lock" size={40} color="white" />
+                </View>
+              </>
+            ) : (
+              <View style={styles.checkIconContainer}>
+                <FontAwesome5 name="check" size={30} color="green" />
+              </View>
+            )}
           </View>
         </View>
       </TouchableOpacity>
@@ -80,6 +137,21 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
   },
+  lockIconContainer: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [{ translateX: -20 }, { translateY: -20 }],
+  },
+  lockOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  checkIconContainer: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
   title: {
     fontSize: 25,
     color: 'black',
@@ -107,7 +179,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 18,
     fontFamily: 'Quicksand-VariableFont_wght',
-    textDecorationLine: 'underline', // Adiciona sublinhado à descrição
+    textDecorationLine: 'underline',
   },
   price: {
     width: 70,

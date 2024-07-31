@@ -28,7 +28,7 @@ export default {
       "permissions": [
         "com.android.vending.BILLING"
       ],
-      "versionCode": 16,
+      "versionCode": 17,
       "googleServicesFile": "./android/app/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",

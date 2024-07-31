@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
-  View, StyleSheet, Dimensions, ImageBackground, Animated, UIManager, Platform, AppState, TouchableOpacity, Text,
+  View, StyleSheet, Dimensions, Animated, UIManager, Platform, AppState, TouchableOpacity, Text, ImageBackground,
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import PackageItem from './PackageItem';

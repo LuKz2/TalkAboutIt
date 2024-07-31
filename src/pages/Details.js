@@ -13,7 +13,6 @@ import Pacotes from '../components/Pacotes';
 import packageData from '../json/packageData.json';
 import { Audio } from 'expo-av';
 import { MusicContext } from '../components/MusicProvider';
-import { BlurView } from '@react-native-community/blur';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import DraggableNotification from '../components/DraggableNotification';
@@ -341,7 +340,7 @@ const Details = () => {
 
     showNotification({
       message: "TAI 👽",
-      description: "Vou apresentar o app rapidamente. Confira as principais funcionalidades clicando no menu.",
+      description: "Vou apresentar o app rapidamente. Confira as principais funcionalidades clicando nos 3 riscos acessando o menu.",
       onClose: () => {
         setShowBlinkingIcon(true);
       }
@@ -359,31 +358,24 @@ const Details = () => {
   const fetchGoogleUserProfile = useCallback(async () => {
     try {
       const userInfo = await GoogleSignin.getCurrentUser();
-      console.log('Google User Info:', userInfo); // Log para depuração
-  
       if (userInfo) {
         setUserInfo(userInfo);
         const fullName = userInfo.user.name || '';
-        console.log('Full Name:', fullName); // Log do nome completo
         const firstName = fullName.split(' ')[0];
         setUserName(firstName.charAt(0).toUpperCase() + firstName.slice(1));
         setUserProfilePic(userInfo.user.photo);
         setIsProfilePicLoading(false);
-      } else {
-        console.log('No user info available');
       }
     } catch (error) {
       console.error('Erro ao obter informações do usuário do Google:', error);
     }
   }, []);
-  
-  
+
   const fetchFacebookUserProfile = useCallback(() => {
     const responseInfoCallback = (error, result) => {
       if (error) {
         console.error('Erro ao obter informações do usuário do Facebook:', error);
       } else {
-        console.log('Facebook User Info:', result); // Log para depuração
         const fullName = result.name || '';
         const firstName = fullName.split(' ')[0];
         setUserName(firstName.charAt(0).toUpperCase() + firstName.slice(1));
@@ -392,7 +384,7 @@ const Details = () => {
         setIsProfilePicLoading(false);
       }
     };
-  
+
     const infoRequest = new GraphRequest(
       '/me',
       {
@@ -405,11 +397,10 @@ const Details = () => {
       },
       responseInfoCallback
     );
-  
+
     new GraphRequestManager().addRequest(infoRequest).start();
   }, []);
-  
-  
+
   const handleGoogleLogout = useCallback(async () => {
     try {
       setIsLoggingOut(true);
@@ -756,21 +747,17 @@ const Details = () => {
             <View style={styles.darkOverlay} />
           )}
           {isBlurActive && shouldApplyBlur(notification?.description) && (
-            <BlurView
-              style={styles.blurView}
-              blurType="dark"
-              blurAmount={10}
-            />
+            <Animated.View style={[styles.blurView, { opacity: 0.8 }]} />
           )}
           {menuIconVisible && showBlinkingIcon && (
             <Animated.View style={{
               position: 'absolute',
-              top: 65,
-              left: 20,
+              top: Dimensions.get('window').height * 0.07,
+              right: Dimensions.get('window').height * 0.412,
               zIndex: 3,
               opacity: blinkAnim
             }}>
-              <TouchableOpacity onPress={handleMenuIconPress}>
+              <TouchableOpacity onPress={handleMenuIconPress} style={{}}>
                 <FontAwesome5 name="bars" size={Dimensions.get('window').width * 0.07} color="#999999" />
               </TouchableOpacity>
             </Animated.View>
@@ -948,6 +935,7 @@ const styles = StyleSheet.create({
   },
   blurView: {
     ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Substitua pelo efeito desejado
     zIndex: 2,
   },
   loadingContainer: {

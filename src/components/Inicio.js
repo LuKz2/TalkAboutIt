@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Dimensions, Image, Animated, ActivityIndicator } from 'react-native';
-import Svg, { Path, Text as SvgText, TextPath, Defs } from 'react-native-svg';
 import { useNavigation, useFocusEffect, useRoute } from '@react-navigation/native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { AccessToken } from 'react-native-fbsdk-next';
@@ -25,7 +24,6 @@ import imgCrush from '../../assets/pacotes/crush.jpg';
 import imgFam from '../../assets/pacotes/familia.jpg';
 import imgGratis from '../../assets/background/back_details.jpg';
 
-
 const packageImages = {
   'Apimentadas': img18,
   'Sobre Grupo': imgAmigos,
@@ -44,7 +42,7 @@ const packageImages = {
 const Inicio = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const { userName } = route.params || {};  // Removido setIsMenuIconDisabled
+  const { userName } = route.params || {};
 
   const [userInfo, setUserInfo] = useState(null);
   const [purchasedPackages, setPurchasedPackages] = useState([]);
@@ -54,7 +52,8 @@ const Inicio = () => {
   const [rightActiveIndex, setRightActiveIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const blinkAnim = useState(new Animated.Value(1))[0];
-  const textBlinkAnim = useState(new Animated.Value(1))[0]; // Novo estado para animação do texto
+  const textBlinkAnim = useState(new Animated.Value(1))[0];
+  const buttonScale = useState(new Animated.Value(1))[0]; // Estado para a escala do botão
   const freePackage = 'Pacote Grátis';
 
   useEffect(() => {
@@ -101,10 +100,9 @@ const Inicio = () => {
         items = userDoc.data().checkedItems || {};
       }
 
-      // Verifica se é a primeira vez que o usuário está acessando o app
       if (Object.keys(items).length === 0) {
-        items[freePackage] = true; // Marca o pacote grátis como selecionado
-        await setDoc(userDocRef, { checkedItems: items }, { merge: true }); // Salva os itens atualizados no Firestore
+        items[freePackage] = true;
+        await setDoc(userDocRef, { checkedItems: items }, { merge: true });
       }
 
       setCheckedItems(items);
@@ -128,11 +126,10 @@ const Inicio = () => {
       return { id: data.id, name: data.name };
     }
 
-    return null;
+    return null; // Corrigir aqui
   };
 
   useEffect(() => {
-    // Configurar animação de piscar
     Animated.loop(
       Animated.sequence([
         Animated.timing(blinkAnim, {
@@ -161,8 +158,6 @@ const Inicio = () => {
 
     if (selectedPackages.length === 0) {
       console.error('Nenhum pacote selecionado');
-
-      // Iniciar a animação de piscar para o texto "Nenhum pacote selecionado"
       Animated.sequence([
         Animated.timing(textBlinkAnim, {
           toValue: 0,
@@ -179,14 +174,24 @@ const Inicio = () => {
       return;
     }
 
-    navigation.navigate('Roleta', { purchasedPackages, userInfo, checkedItems });
+    Animated.sequence([
+      Animated.timing(buttonScale, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(buttonScale, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      navigation.navigate('Roleta', { purchasedPackages, userInfo, checkedItems });
+    });
   };
 
   const leftCarouselItems = selectedPackages.filter((_, index) => index % 2 === 0);
   const rightCarouselItems = selectedPackages.filter((_, index) => index % 2 !== 0);
-
-  console.log('Left Carousel Items:', leftCarouselItems);
-  console.log('Right Carousel Items:', rightCarouselItems);
 
   const renderCarouselItem = ({ item }) => (
     <View style={styles.packageItem}>
@@ -199,25 +204,7 @@ const Inicio = () => {
     <ImageBackground source={require('../../assets/background/back.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <View style={styles.container}>
-          <View style={styles.svgContainer}>
-            <Svg height="420" width="300">
-              <Defs>
-                <Path
-                  id="curve"
-                  d="M 20 220 Q 150 210 280 220" // Ajustando a curva para ser quase reta e evitar corte
-                  fill="none"
-                  stroke="transparent"
-                />
-              </Defs>
-              <SvgText fill="white" fontSize="45" fontFamily="Boris">
-                <TextPath href="#curve">
-                  Bem-Vindo
-                </TextPath>
-              </SvgText>
-            </Svg>
-          </View>
-
-          <Animated.View style={{ opacity: blinkAnim }}>
+          <Animated.View style={{ opacity: blinkAnim, transform: [{ scale: buttonScale }] }}>
             <TouchableOpacity onPress={handlePlayPress} style={styles.newButton}>
               <Text style={styles.newButtonText}>START</Text>
             </TouchableOpacity>
@@ -311,41 +298,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: height * 0.04, // Adiciona um pequeno preenchimento na parte inferior para manter a consistência
-  },
-  svgContainer: {
-    marginBottom: height * 0.09,
-    left: 2,
+    top: height * 0.12,
   },
   newButton: {
-    width: width * 0.20,
-    height: width * 0.20,
-    borderRadius: width * 0.125,
+    width: width * 0.3,
+    height: 40,
+    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(11, 9, 10, 0.59)', // Fundo azul
     marginVertical: height * 0.08,
-    shadowColor: '#ffc8c8',
-    shadowOffset: { width: 0, height: 20 },
-    shadowOpacity: 1,
-    shadowRadius: 50,
-    elevation: 100,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 5,
     top: width * 0.1,
-  },
-  buttonBackground: {
-    width: '100%',
-    height: '100%',
-    borderRadius: width * 0.125,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   newButtonText: {
     color: 'white',
     fontSize: 20,
     fontFamily: 'Quicksand-VariableFont_wght',
     textShadowColor: '#000',
-    textShadowOffset: { width: 5, height: 5 },
-    textShadowRadius: 10,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   dividerContainer: {
     position: 'absolute',
@@ -353,7 +329,6 @@ const styles = StyleSheet.create({
     left: '50%',
     transform: [{ translateX: -1 }],
     height: height * 0.1,
-    
     justifyContent: 'center',
   },
   dividerVertical: {
@@ -372,12 +347,10 @@ const styles = StyleSheet.create({
     top: height * -0.06,
     right: height * 0.1,
     alignItems: 'center',
-    
   },
   packageItem: {
     alignItems: 'center',
     marginHorizontal: 10,
-    
   },
   packageImage: {
     width: 50,

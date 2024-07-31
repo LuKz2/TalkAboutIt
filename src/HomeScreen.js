@@ -95,7 +95,7 @@ const HomeScreen = () => {
     },
     {
       message: "TAI 👽",
-      description: "Antes de começarmos, por favor, faça login. Quero te chamar pelo nome e te conhecer melhor 😊",
+      description: "Antes de começarmos, por favor, faça login. Quero te chamar pelo nome e te conhecer melhor",
     },
   ];
 

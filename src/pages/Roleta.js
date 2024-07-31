@@ -6,6 +6,7 @@ import { MusicContext } from '../components/MusicProvider';
 import { FontAwesome5, FontAwesome } from '@expo/vector-icons';
 import { BackHandler } from 'react-native';
 import LottieView from 'lottie-react-native';
+import DraggableNotification from '../components/DraggableNotification'; // Adicione o caminho correto para o componente
 
 const { width, height } = Dimensions.get('window');
 const soundObject = new Audio.Sound();
@@ -36,6 +37,35 @@ const Bottle = ({ route }) => {
   const [isQuestionViewed, setIsQuestionViewed] = useState(true);
   const fadeOutAnim = useRef(new Animated.Value(1)).current;
 
+  // Gerenciamento de notificações
+  const notifications = [
+    { message: 'TAI 👽', description: 'A regra é simples! Reúna os amigos, coloque o celular no centro e gire a roleta, o escolhido lê a pergunta e todos devem responder.', key: '1' },
+    { message: 'TAI 👽', description: 'IMPORTANTE RECADO: incentivo conversas abertas, por isso conte o porquê de sua resposta.', key: '2' },
+    { message: 'TAI 👽', description: 'Espero que você e seus amigos aproveitem a conversa, exponham seus pontos de vista e se divirtam! Se desconecte do mundo digital e se reconecte com o mundo real!', key: '3' },
+  ];
+  const [currentNotificationIndex, setCurrentNotificationIndex] = useState(0);
+  const [blurBackground, setBlurBackground] = useState(false);
+
+  const showNextNotification = () => {
+    if (currentNotificationIndex < notifications.length) {
+      setCurrentNotificationIndex(currentNotificationIndex + 1);
+    } else {
+      setBlurBackground(false);
+    }
+  };
+
+  useEffect(() => {
+    if (currentNotificationIndex < notifications.length) {
+      setBlurBackground(true);
+    } else {
+      setBlurBackground(false);
+    }
+  }, [currentNotificationIndex]);
+
+  const handleNotificationClose = () => {
+    showNextNotification();
+  };
+
   useEffect(() => {
     const backAction = () => {
       return true;
@@ -56,7 +86,6 @@ const Bottle = ({ route }) => {
       resumeMusic();
     }
   }, [isFocused]);
-
 
   useEffect(() => {
     const loadSound = async () => {
@@ -167,7 +196,7 @@ const Bottle = ({ route }) => {
   }, []);
 
   const spinBottle = async () => {
-    if (!isSpinning && isQuestionViewed) {
+    if (!isSpinning && isQuestionViewed && currentNotificationIndex >= notifications.length) {
       setIsSpinning(true);
       setIsQuestionViewed(false);
       rotateValue.setValue(0);
@@ -311,16 +340,32 @@ const Bottle = ({ route }) => {
 
   return (
     <Animated.View style={[styles.container, { opacity: fadeInAnim }]}>
-      <View style={styles.backButtonContainer}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <FontAwesome5 name="arrow-left" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
       <ImageBackground
         source={require('../../assets/background/back.rolet.png')}
         style={styles.backgroundImage}
       >
-        <TouchableOpacity style={styles.arrowContainer} onPress={spinBottle}>
+        {blurBackground && (
+          <View style={styles.blurBackground}>
+            <View style={styles.blurOverlay} />
+          </View>
+        )}
+
+        <View style={styles.backButtonContainer}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+            <FontAwesome5 name="arrow-left" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
+
+        {currentNotificationIndex < notifications.length && (
+          <DraggableNotification
+            key={notifications[currentNotificationIndex].key}
+            message={notifications[currentNotificationIndex].message}
+            description={notifications[currentNotificationIndex].description}
+            onClose={handleNotificationClose}
+          />
+        )}
+
+        <TouchableOpacity style={styles.arrowContainer} onPress={spinBottle} disabled={currentNotificationIndex < notifications.length}>
           <Animated.Image
             source={require('../../assets/seta.png')}
             style={[
@@ -336,6 +381,7 @@ const Bottle = ({ route }) => {
                 ],
                 width: width * 0.3,
                 height: height * 0.5,
+                opacity: blurBackground ? 0.15 : 1, // Ajuste a opacidade da seta com o fundo escuro
               },
             ]}
           />
@@ -399,11 +445,21 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
+  blurBackground: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1,
+  },
+  blurOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
   arrowContainer: {
     alignItems: 'center',
     position: 'absolute',
     left: width * 0.38,
     top: height * 0.21,
+    zIndex: 2, // Garante que a seta esteja na frente do fundo escuro
   },
   pointer: {
     transformOrigin: '36% 50%',
@@ -470,8 +526,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 20,
-    zIndex: 2,
-    opacity: 0.5,
+    zIndex: 9999, // Garante que a seta de volta esteja na frente
   },
   backButton: {
     padding: 8,
